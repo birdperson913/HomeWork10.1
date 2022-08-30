@@ -1,42 +1,53 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 public class TeatRadio {
 
-    @Test
-            public void upVolumeTest() {
+    @ParameterizedTest
+    @CsvFileSource(files = "src/test/resources/upVolume.csv")
+    public void upVolumeTest(int sVol, int actualv) {
         Radio radio = new Radio();
-        radio.setVolume(1);
+        radio.setVolume(sVol);
         radio.upVolume();
-        int actual = 2;
-        int extend= radio.getVolume();
-        Assertions.assertEquals(actual,extend);
+        int actual = actualv;
+        int extend = radio.getVolume();
+        Assertions.assertEquals(extend, actual);
     }
-    @Test
-    public void upCriticalVolumeTest() {
+
+    @ParameterizedTest
+    @CsvFileSource(files = "src/test/resources/downVolume.csv")
+    public void downVolumeTest(int sVol, int actualv) {
         Radio radio = new Radio();
-        radio.setVolume(10);
-        radio.upVolume();
-        int actual = 10;
-        int extend= radio.getVolume();
-        Assertions.assertEquals(actual,extend);
-    }
-    @Test
-    public void downVolumeTest() {
-        Radio radio = new Radio();
-        radio.setVolume(8);
+        radio.setVolume(sVol);
         radio.downVolume();
-        int actual = 7;
-        int extend= radio.getVolume();
-        Assertions.assertEquals(actual,extend);
+        int actual = actualv;
+        int extend = radio.getVolume();
+        Assertions.assertEquals(extend, actual);
     }
-    @Test
-    public void downCriticalCriticalVolumeTest() {
+
+    @ParameterizedTest
+    @CsvFileSource(files = "src/test/resources/nextStation.csv")
+    public void nextStation(int sStat, int actualv) {
         Radio radio = new Radio();
-        radio.setVolume(0);
-        radio.downVolume();
-        int actual = 0;
-        int extend= radio.getVolume();
-        Assertions.assertEquals(actual,extend);
+        radio.setStation(sStat);
+        radio.next();
+        int actual = actualv;
+        int extend = radio.getStation();
+        Assertions.assertEquals(extend, actual);
     }
+
+    @ParameterizedTest
+    @CsvFileSource(files = "src/test/resources/revStation.csv")
+    public void prevStation(int sStat, int actualv) {
+        Radio radio = new Radio();
+        radio.setStation(sStat);
+        radio.prev();
+        int actual = actualv;
+        int extend = radio.getStation();
+        Assertions.assertEquals(extend, actual);
+    }
+
 }
+

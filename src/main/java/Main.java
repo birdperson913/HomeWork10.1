@@ -1,10 +1,10 @@
 public class Main {
     public static void main(String[] args) {
-        Radio radio = new Radio();
-        radio.setStation(15);
-        radio.volume=5;
-        radio.downVolume();
-        radio.next();
-        System.out.println(radio.getStation() +" "+ radio.getVolume());
+
+        Radio radio1 = new Radio();
+        radio1.setStation(0);
+        radio1.prev();
+
+        System.out.println(radio1.getStation());
     }
 }
