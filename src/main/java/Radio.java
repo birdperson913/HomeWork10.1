@@ -7,12 +7,6 @@ public class Radio {
     }
 
     public void setVolume(int volume) {
-        if (volume > 10) {
-            volume = 10;
-        }
-        if (volume < 0) {
-            volume = 0;
-        }
         this.volume = volume;
     }
 
@@ -36,12 +30,6 @@ public class Radio {
     }
 
     public void setStation(int station) {
-        if (station >9) {
-            station = 0;
-        }
-       if (station < 0) {
-            station = 9;
-        }
         this.station = station;
     }
 
