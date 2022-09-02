@@ -4,7 +4,16 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
 public class RadioTest {
-
+    @Test
+    public void createRadioAddVolumeAddStation(){
+        Radio radio = new Radio(12,4);
+        int actualVol = radio.maxVolume;
+        int extend = 12;
+        Assertions.assertEquals(extend, actualVol);
+        int actualSt = radio.maxSation;
+        extend = 4;
+        Assertions.assertEquals(extend, actualSt);
+    }
 
     @Test
     public void createRadioVolume(){
