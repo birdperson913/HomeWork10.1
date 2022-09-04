@@ -11,12 +11,12 @@ public class RadioTest {
 
 
     @ParameterizedTest
-    @CsvFileSource(files = "src/test/resources/amountVolume.csv")
-    public void amountStationTest(int sStation, int actualSt, int amountStation)
+    @CsvFileSource(files = "src/test/resources/amountStation.csv")
+    public void amountStationTest(int sStation, int actualStation, int amountStation)
     {
         Radio radio = new Radio(amountStation);
         radio.setStation(sStation);
-        int actual= actualSt;
+        int actual= actualStation;
         radio.next();
         int extend = radio.getStation();
         Assertions.assertEquals(extend, actual);
