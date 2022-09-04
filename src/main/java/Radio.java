@@ -53,7 +53,7 @@ this.amountStation=10;
     public void prev() {
         if (station > 0) {
             station = station - 1;
-        } else station = amountStation;
+        } else station = amountStation-1;
 
 
     }
