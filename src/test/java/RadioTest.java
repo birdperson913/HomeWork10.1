@@ -1,13 +1,30 @@
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
 public class RadioTest {
 
+
+    @ParameterizedTest
+    @CsvFileSource(files = "src/test/resources/amountStation.csv")
+    public void amountStationTest(int sStation, int actualStation, int amountStation)
+    {
+        Radio radio = new Radio(amountStation);
+        radio.setStation(sStation);
+        int actual= actualStation;
+        radio.next();
+        int extend = radio.getStation();
+        Assertions.assertEquals(extend, actual);
+    }
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/upVolume.csv")
     public void upVolumeTest(int sVol, int actualv) {
-        Radio radio = new Radio();
+        Radio radio =  new Radio();
         radio.setVolume(sVol);
         radio.upVolume();
         int actual = actualv;
@@ -49,4 +66,3 @@ public class RadioTest {
     }
 
 }
-
