@@ -1,7 +1,7 @@
 public class Radio {
-    public int volume;
-    public int station;
-    public  int amountStation;
+    private int volume;
+    private int station;
+    private  int amountStation;
 
     public Radio(int amountStation) {
         this.amountStation = amountStation;
@@ -20,7 +20,7 @@ this.amountStation=10;
     }
 
     public void upVolume() {
-        if (volume < 10) {
+        if (volume < 100) {
             volume = volume + 1;
         }
 
